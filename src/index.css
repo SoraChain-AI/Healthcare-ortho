@@ -1,21 +1,20 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 210 20% 98%;
     --foreground: 222.2 84% 4.9%;
+
+    --primary: 197 69% 28%; // #29647c
+    --primary-foreground: 8 84% 52%; // #08e8de
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -114,5 +113,27 @@
   
   .sorachain-button {
     @apply sorachain-gradient text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-opacity duration-200;
+  }
+
+  .clinical-card {
+    @apply bg-white border border-sorachain-border rounded-lg shadow-sm p-6 transition-all hover:shadow-md;
+  }
+
+  .clinical-input {
+    @apply border border-sorachain-border rounded-md px-3 py-2 focus:border-sorachain-secondary focus:ring-2 focus:ring-sorachain-secondary/30;
+  }
+
+  .clinical-button {
+    @apply bg-sorachain-primary text-white hover:bg-sorachain-primary/90 transition-colors rounded-md px-4 py-2;
+  }
+}
+
+@layer utilities {
+  .clinical-gradient {
+    @apply bg-gradient-to-r from-sorachain-primary to-sorachain-secondary;
+  }
+
+  .trust-shadow {
+    @apply shadow-[0_4px_6px_rgba(44,62,80,0.1)];
   }
 }
