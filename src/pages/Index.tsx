@@ -39,7 +39,7 @@ const Index = () => {
             <div className="max-w-2xl lg:max-w-lg lg:mr-8">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
                 SoraChain AI
-                <span className="block text-sorachain-primary mt-1">Predictive modeling for knee joint</span>
+                <span className="block text-sorachain-primary mt-1">Predictive modeling for knee joints</span>
               </h1>
               <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">Collaborate securely with healthcare institutions to develop AI models that enhance the diagnosis, treatment, and management of knee-related conditions—while ensuring data privacy and maintaining patient data sovereignty.</p>
               <div className="mt-8 flex flex-wrap gap-4">
