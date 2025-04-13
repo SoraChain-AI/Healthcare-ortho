@@ -1,47 +1,37 @@
-
 import { BrainCircuit, Hospital, Gavel, BarChart2, Bot, Vote } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import Layout from '@/components/layout/Layout';
 import { Link } from 'react-router-dom';
-
 const Index = () => {
-  const features = [
-    {
-      icon: <Hospital className="h-8 w-8" />,
-      title: 'Institution Onboarding',
-      description: 'Join the SoraChain network as a healthcare institution',
-      route: '/onboarding'
-    },
-    {
-      icon: <Gavel className="h-8 w-8" />,
-      title: 'Subnet Dutch Auction',
-      description: 'Secure your place in the AI training subnet',
-      route: '/auction'
-    },
-    {
-      icon: <BarChart2 className="h-8 w-8" />,
-      title: 'Federated Training Dashboard',
-      description: 'Track model training progress across institutions',
-      route: '/training'
-    },
-    {
-      icon: <Bot className="h-8 w-8" />,
-      title: 'Knee Specialist AI',
-      description: 'Access the deployed AI for diagnosis',
-      route: '/inference'
-    },
-    {
-      icon: <Vote className="h-8 w-8" />,
-      title: 'Feedback & Governance',
-      description: 'Vote on future model improvements',
-      route: '/governance'
-    }
-  ];
-  
-  return (
-    <Layout>
+  const features = [{
+    icon: <Hospital className="h-8 w-8" />,
+    title: 'Institution Onboarding',
+    description: 'Join the SoraChain network as a healthcare institution',
+    route: '/onboarding'
+  }, {
+    icon: <Gavel className="h-8 w-8" />,
+    title: 'Subnet Dutch Auction',
+    description: 'Secure your place in the AI training subnet',
+    route: '/auction'
+  }, {
+    icon: <BarChart2 className="h-8 w-8" />,
+    title: 'Federated Training Dashboard',
+    description: 'Track model training progress across institutions',
+    route: '/training'
+  }, {
+    icon: <Bot className="h-8 w-8" />,
+    title: 'Knee Specialist AI',
+    description: 'Access the deployed AI for diagnosis',
+    route: '/inference'
+  }, {
+    icon: <Vote className="h-8 w-8" />,
+    title: 'Feedback & Governance',
+    description: 'Vote on future model improvements',
+    route: '/governance'
+  }];
+  return <Layout>
       <div className="space-y-12">
         <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 shadow-xl">
           <div className="absolute inset-0 bg-gradient-to-br from-sorachain-light via-white to-sorachain-pale opacity-50 dark:opacity-20" />
@@ -49,7 +39,7 @@ const Index = () => {
             <div className="max-w-2xl lg:max-w-lg lg:mr-8">
               <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
                 SoraChain AI
-                <span className="block text-sorachain-primary mt-1">Federated Healthcare</span>
+                <span className="block text-sorachain-primary mt-1">Predictive modeling for knee joint</span>
               </h1>
               <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
                 Collaborate securely with other healthcare institutions to build AI models that improve patient care while preserving privacy and data sovereignty.
@@ -66,13 +56,11 @@ const Index = () => {
             <div className="mt-10 lg:mt-0 lg:flex-1">
               <div className="relative mx-auto w-full max-w-lg lg:max-w-md">
                 <div className="absolute top-0 left-0 w-72 h-72 bg-sorachain-primary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft" />
-                <div className="absolute bottom-0 right-0 w-72 h-72 bg-sorachain-secondary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft" style={{ animationDelay: '1s' }} />
+                <div className="absolute bottom-0 right-0 w-72 h-72 bg-sorachain-secondary/30 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse-soft" style={{
+                animationDelay: '1s'
+              }} />
                 <div className="relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80"
-                    alt="Medical AI visualization"
-                    className="relative z-10 w-full h-full object-cover rounded-2xl shadow-xl"
-                  />
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=500&q=80" alt="Medical AI visualization" className="relative z-10 w-full h-full object-cover rounded-2xl shadow-xl" />
                 </div>
               </div>
             </div>
@@ -80,15 +68,10 @@ const Index = () => {
         </div>
 
         <section>
-          <SectionHeader 
-            title="How It Works" 
-            description="SoraChain AI enables privacy-preserving collaborative AI model development across healthcare institutions."
-            icon={<BrainCircuit className="h-8 w-8" />}
-          />
+          <SectionHeader title="How It Works" description="SoraChain AI enables privacy-preserving collaborative AI model development across healthcare institutions." icon={<BrainCircuit className="h-8 w-8" />} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <Link to={feature.route} key={index}>
+            {features.map((feature, index) => <Link to={feature.route} key={index}>
                 <Card className="h-full highlight-card hover:translate-y-[-4px] transition-all">
                   <CardHeader>
                     <div className="text-sorachain-primary mb-3">{feature.icon}</div>
@@ -101,13 +84,10 @@ const Index = () => {
                     </Button>
                   </CardContent>
                 </Card>
-              </Link>
-            ))}
+              </Link>)}
           </div>
         </section>
       </div>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Index;
