@@ -2,14 +2,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  BrainCircuit, 
   Menu, 
   X, 
   Hospital, 
   Gavel, 
   BarChart2, 
   Bot, 
-  Vote 
+  Vote,
+  BrainCircuit
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggle } from '@/components/theme/ThemeToggle';
@@ -36,10 +36,14 @@ const Navbar = () => {
         <div className="flex h-16 justify-between">
           <div className="flex">
             <div className="flex flex-shrink-0 items-center">
-              <div className="flex items-center gap-2">
-                <BrainCircuit className="h-8 w-8 text-sorachain-primary" />
+              <Link to="/" className="flex items-center gap-2">
+                <img 
+                  src="/lovable-uploads/ece62b12-57de-4357-9b19-8078adff3c8a.png" 
+                  alt="SoraChain AI Logo" 
+                  className="h-8 w-8"
+                />
                 <span className="text-xl font-bold bg-clip-text text-transparent sorachain-gradient">SoraChain AI</span>
-              </div>
+              </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
               {navItems.map((item, index) => (
