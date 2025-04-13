@@ -37,11 +37,11 @@ const Index = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-sorachain-light via-white to-sorachain-pale opacity-50 dark:opacity-20" />
           <div className="relative px-6 py-12 sm:px-12 sm:py-16 lg:py-20 lg:px-16 flex flex-col lg:flex-row items-center">
             <div className="max-w-2xl lg:max-w-lg lg:mr-8">
-              <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl text-zinc-500">
                 SoraChain AI
                 <span className="block text-sorachain-primary mt-1">Predictive modeling for knee joints</span>
               </h1>
-              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">Collaborate securely with healthcare institutions to develop AI models that enhance the diagnosis, treatment, and management of knee-related conditions—while ensuring data privacy and maintaining patient data sovereignty.</p>
+              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">Collaborate securely with healthcare institutions to develop AI models that enhance the diagnosis, treatment, and management of knee-related conditions.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link to="/onboarding">
                   <Button className="sorachain-button text-lg py-3 px-6">Join as Institution</Button>
