@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,15 +96,15 @@
 
 @layer components {
   .badge {
-    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sorachain-light text-sorachain-tertiary;
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-sorachain-light text-white;
   }
   
   .privacy-badge {
-    @apply badge bg-sorachain-pale text-sorachain-secondary;
+    @apply badge bg-sorachain-pale text-white;
   }
   
   .highlight-card {
-    @apply border border-sorachain-light bg-gradient-to-br from-white to-sorachain-light/30 shadow-md hover:shadow-lg transition-all duration-300;
+    @apply border border-sorachain-light/50 bg-gradient-to-br from-white to-sorachain-light/30 shadow-md hover:shadow-lg transition-all duration-300;
   }
   
   .sorachain-gradient {

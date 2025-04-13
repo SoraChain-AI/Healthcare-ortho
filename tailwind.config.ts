@@ -63,18 +63,11 @@ export default {
           ring: 'hsl(var(--sidebar-ring))'
         },
         sorachain: {
+          light: '#29647c',
+          pale: '#08e8de',
+          border: '#E0E6ED',
           primary: '#29647c',
           secondary: '#08e8de',
-          background: '#F5F7FA',
-          text: {
-            primary: '#2C3E50',
-            secondary: '#7F8C8D',
-          },
-          border: '#E0E6ED',
-          clinical: {
-            white: '#FFFFFF',
-            lightGray: '#F1F1F1',
-          }
         }
       },
       borderRadius: {
