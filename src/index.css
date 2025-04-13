@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,8 +8,8 @@
     --background: 210 20% 98%;
     --foreground: 222.2 84% 4.9%;
 
-    --primary: 197 69% 28%; // #29647c
-    --primary-foreground: 8 84% 52%; // #08e8de
+    --primary: 197 69% 28%; /* #29647c */
+    --primary-foreground: 8 84% 52%; /* #08e8de */
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
