@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { 
   Bot, 
@@ -27,7 +26,7 @@ import {
 } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Radio, RadioGroup } from '@/components/ui/radio-group';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import { 
   Collapsible, 
@@ -122,7 +121,6 @@ const Inference = () => {
   };
   
   const handleAnalyze = () => {
-    // Validation for structured form
     if (activeTab === 'structured') {
       const missingFields = Object.values(symptoms).some(val => val === '');
       if (missingFields) {
@@ -135,7 +133,6 @@ const Inference = () => {
       }
     }
     
-    // Validation for free text
     if (activeTab === 'freetext' && freeTextSymptoms.trim().length < 10) {
       toast({
         title: "More Details Needed",
@@ -147,9 +144,7 @@ const Inference = () => {
     
     setIsAnalyzing(true);
     
-    // Simulate API call delay
     setTimeout(() => {
-      // Mock diagnosis result
       setDiagnosisResult({
         condition: "Meniscus Tear",
         confidence: 87,
@@ -233,7 +228,7 @@ const Inference = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                               {q.options.map((option) => (
                                 <div key={option.value} className="flex items-center space-x-2">
-                                  <Radio id={`${q.id}-${option.value}`} value={option.value} />
+                                  <RadioGroupItem id={`${q.id}-${option.value}`} value={option.value} />
                                   <label htmlFor={`${q.id}-${option.value}`} className="text-sm cursor-pointer">
                                     {option.label}
                                   </label>
