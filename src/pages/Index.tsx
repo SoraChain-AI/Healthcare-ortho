@@ -41,9 +41,7 @@ const Index = () => {
                 SoraChain AI
                 <span className="block text-sorachain-primary mt-1">Predictive modeling for knee joint</span>
               </h1>
-              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">
-                Collaborate securely with other healthcare institutions to build AI models that improve patient care while preserving privacy and data sovereignty.
-              </p>
+              <p className="mt-6 text-lg text-gray-600 dark:text-gray-300">Collaborate securely with healthcare institutions to develop AI models that enhance the diagnosis, treatment, and management of knee-related conditions—while ensuring data privacy and maintaining patient data sovereignty.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link to="/onboarding">
                   <Button className="sorachain-button text-lg py-3 px-6">Join as Institution</Button>
