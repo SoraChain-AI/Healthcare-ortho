@@ -13,7 +13,9 @@ import {
   BrainCircuit, 
   BarChart2, 
   CheckCircle2, 
-  X 
+  X,
+  Upload,
+  FileUp
 } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
 import { 
@@ -37,6 +39,8 @@ import { Badge } from '@/components/common/Badge';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import Layout from '@/components/layout/Layout';
 import { Progress } from '@/components/ui/progress';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 
 const symptomQuestions = [
   {
@@ -113,11 +117,51 @@ const Inference = () => {
   const [showExplanation, setShowExplanation] = useState(false);
   const [feedbackSent, setFeedbackSent] = useState(false);
   
+  const [uploadedFiles, setUploadedFiles] = useState<File[]>([]);
+  const [isUploadDialogOpen, setIsUploadDialogOpen] = useState(false);
+  const [fileUploadError, setFileUploadError] = useState('');
+  
   const handleSymptomChange = (questionId: string, value: string) => {
     setSymptoms({
       ...symptoms,
       [questionId]: value
     });
+  };
+  
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFileUploadError('');
+    const files = e.target.files;
+    if (!files) return;
+    
+    const newFiles: File[] = [];
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      const validTypes = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'image/jpeg', 'image/png'];
+      if (!validTypes.includes(file.type)) {
+        setFileUploadError('Only PDF, DOCX, JPG, and PNG files are accepted.');
+        return;
+      }
+      
+      if (file.size > 5 * 1024 * 1024) {
+        setFileUploadError('Files must be smaller than 5MB.');
+        return;
+      }
+      
+      newFiles.push(file);
+    }
+    
+    setUploadedFiles([...uploadedFiles, ...newFiles]);
+  };
+  
+  const removeFile = (index: number) => {
+    const newFiles = [...uploadedFiles];
+    newFiles.splice(index, 1);
+    setUploadedFiles(newFiles);
+  };
+  
+  const closeUploadDialog = () => {
+    setIsUploadDialogOpen(false);
+    setFileUploadError('');
   };
   
   const handleAnalyze = () => {
@@ -179,6 +223,7 @@ const Inference = () => {
     setFreeTextSymptoms('');
     setDiagnosisResult(null);
     setFeedbackSent(false);
+    setUploadedFiles([]);
   };
   
   const handleFeedback = (isPositive: boolean) => {
@@ -260,6 +305,57 @@ const Inference = () => {
                     </div>
                   </TabsContent>
                 </Tabs>
+
+                <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center justify-between mb-4">
+                    <div>
+                      <h3 className="font-medium text-lg flex items-center">
+                        <FileText className="h-5 w-5 mr-2 text-sorachain-primary" />
+                        Medical Reports
+                      </h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Upload relevant medical records to enhance the diagnosis
+                      </p>
+                    </div>
+                    <Button 
+                      onClick={() => setIsUploadDialogOpen(true)}
+                      variant="outline"
+                      className="flex items-center"
+                    >
+                      <FileUp className="h-4 w-4 mr-2" />
+                      Upload Files
+                    </Button>
+                  </div>
+
+                  {uploadedFiles.length > 0 && (
+                    <div className="bg-gray-50 dark:bg-gray-800 rounded-md p-3">
+                      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                        {uploadedFiles.length} file{uploadedFiles.length !== 1 ? 's' : ''} attached:
+                      </p>
+                      <ul className="space-y-2">
+                        {uploadedFiles.map((file, index) => (
+                          <li key={index} className="flex items-center justify-between text-sm p-2 bg-white dark:bg-gray-700 rounded border border-gray-200 dark:border-gray-600">
+                            <div className="flex items-center">
+                              <FileText className="h-4 w-4 mr-2 text-sorachain-primary" />
+                              <span className="truncate max-w-xs">{file.name}</span>
+                              <span className="ml-2 text-gray-500 text-xs">
+                                ({(file.size / (1024 * 1024)).toFixed(2)} MB)
+                              </span>
+                            </div>
+                            <Button 
+                              variant="ghost" 
+                              size="sm" 
+                              onClick={() => removeFile(index)}
+                              className="h-7 w-7 p-0"
+                            >
+                              <X className="h-4 w-4" />
+                            </Button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
               </CardContent>
               <CardFooter className="flex justify-between">
                 <Button variant="outline" onClick={handleReset}>
@@ -567,6 +663,57 @@ const Inference = () => {
           </Card>
         </div>
       </div>
+
+      <Dialog open={isUploadDialogOpen} onOpenChange={setIsUploadDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Upload Medical Reports</DialogTitle>
+            <DialogDescription>
+              Attach relevant medical reports to enhance your diagnosis. We accept PDF, DOCX, JPG, and PNG files up to 5MB.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="space-y-4 py-4">
+            <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg p-6 transition-colors hover:border-sorachain-light">
+              <Upload className="h-10 w-10 text-gray-400 mb-2" />
+              <p className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                <span className="font-semibold">Click to upload</span> or drag and drop
+              </p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
+                PDF, DOCX, JPG or PNG (MAX. 5MB)
+              </p>
+              <Input
+                type="file"
+                className="hidden"
+                id="file-upload"
+                multiple
+                accept=".pdf,.docx,.jpg,.jpeg,.png,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png"
+                onChange={handleFileChange}
+              />
+              <label htmlFor="file-upload" className="w-full">
+                <Button
+                  variant="outline"
+                  className="mt-4 w-full cursor-pointer"
+                  onClick={() => document.getElementById('file-upload')?.click()}
+                >
+                  Select Files
+                </Button>
+              </label>
+            </div>
+            
+            {fileUploadError && (
+              <div className="bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 p-3 rounded-md text-sm">
+                <AlertCircle className="h-4 w-4 inline mr-2" />
+                {fileUploadError}
+              </div>
+            )}
+
+            <div className="flex justify-end space-x-2 pt-4">
+              <Button variant="outline" onClick={closeUploadDialog}>Cancel</Button>
+              <Button onClick={closeUploadDialog}>Done</Button>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </Layout>
   );
 };
