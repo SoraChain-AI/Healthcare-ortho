@@ -11,10 +11,10 @@ export function Badge({ label, variant = 'default', className }: BadgeProps) {
   const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium";
   
   const variantClasses = {
-    default: "bg-sorachain-light text-sorachain-tertiary",
-    privacy: "bg-sorachain-pale text-sorachain-secondary",
-    success: "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200",
-    warning: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200",
+    default: "bg-sorachain-light text-white", // Changed to white text for better visibility
+    privacy: "bg-sorachain-pale text-black", // Changed to black text for contrast
+    success: "bg-green-500 text-white", // Enhanced color for better visibility
+    warning: "bg-yellow-500 text-black", // Enhanced color with black text
   };
   
   return (
