@@ -1,6 +1,6 @@
 # 🦵 Ortho AI - Federated Vision
 
-A privacy-preserving federated learning platform for knee X-ray image classification and diagnostics, built with edge-focused vision AI. No central data collection—just smarter, safer models.
+A privacy-preserving federated learning platform for knee X-ray image classification and diagnostics, built with edge-focused vision AI. No central data collection—just smarter, safer models. This is Proof of Concept built on SoraChain AI engine.
 
 🌐 **Live Demo:** healthcare.sorachain.ai
 
@@ -32,6 +32,5 @@ Built for:
 - **Frontend**: React + TailwindCSS
 - **Backend**: Node.js + Python APIs
 - **Federated Learning**: PySyft / Flower / TensorFlow Federated
-- **Model**: CNN-based classification (ResNet, MobileNet, etc.)
 
 ---
