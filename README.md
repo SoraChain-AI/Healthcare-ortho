@@ -1,73 +1,37 @@
-# Welcome to your Lovable project
+# 🦵 Ortho AI - Federated Vision
 
-## Project info
+A privacy-preserving federated learning platform for knee X-ray image classification and diagnostics, built with edge-focused vision AI. No central data collection—just smarter, safer models.
 
-**URL**: https://lovable.dev/projects/e349a3b9-7f1c-474a-98e2-b213e552a234
+🌐 **Live Demo:** healthcare.sorachain.ai
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Overview
 
-**Use Lovable**
+**Knee AI - Federated Vision** is a decentralized machine learning application that allows medical image models to train collaboratively—**without sharing patient data**. Each node learns locally, contributing to a global model via secure federated learning.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e349a3b9-7f1c-474a-98e2-b213e552a234) and start prompting.
+Built for:
+- 🏥 **Hospitals & Clinics**
+- 🔐 **Privacy-first AI research**
+- 🧠 **Edge deployment of diagnostic models**
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🧠 Key Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- ✅ **Federated Learning**: Train models across distributed datasets while keeping data local.
+- 🔍 **Medical Image Classification**: Specifically focused on knee X-ray diagnostics.
+- 🔐 **Privacy-by-Design**: Zero data transfer. 100% secure training.
+- 🌐 **Live Visual Interface**: Real-time monitoring of training nodes and model metrics.
+- ⚡ **Fast Deployment**: Easily scalable to multiple edge devices.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 🛠️ Tech Stack
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+- **Frontend**: React + TailwindCSS
+- **Backend**: Node.js + Python APIs
+- **Federated Learning**: PySyft / Flower / TensorFlow Federated
+- **Model**: CNN-based classification (ResNet, MobileNet, etc.)
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e349a3b9-7f1c-474a-98e2-b213e552a234) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+---
