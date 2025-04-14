@@ -11,7 +11,7 @@ A privacy-preserving federated learning platform for knee X-ray image classifica
 **Knee AI - Federated Vision** is a decentralized machine learning application that allows medical image models to train collaboratively—**without sharing patient data**. Each node learns locally, contributing to a global model via secure federated learning.
 
 Built for:
-- 🏥 **Hospitals & Clinics**
+- 🏥 **Hospitals/Clinics/University Research Labs**
 - 🔐 **Privacy-first AI research**
 - 🧠 **Edge deployment of diagnostic models**
 
