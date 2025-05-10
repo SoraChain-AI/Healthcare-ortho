@@ -3,7 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import Layout from '@/components/layout/Layout';
+import { ComputeProviders } from '@/components/compute/ComputeProviders';
 import { Link } from 'react-router-dom';
+
 const Index = () => {
   const features = [{
     icon: <Hospital className="h-8 w-8" />,
@@ -67,6 +69,10 @@ const Index = () => {
         </div>
 
         <section>
+          <ComputeProviders />
+        </section>
+
+        <section>
           <SectionHeader title="How It Works" description="SoraChain AI enables privacy-preserving collaborative AI model development across healthcare institutions." icon={<img src="/lovable-uploads/ece62b12-57de-4357-9b19-8078adff3c8a.png" alt="SoraChain AI Logo" className="h-8 w-8" />} />
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -89,4 +95,5 @@ const Index = () => {
       </div>
     </Layout>;
 };
+
 export default Index;
