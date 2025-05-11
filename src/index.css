@@ -1,89 +1,90 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 210 20% 98%;
-    --foreground: 240 5.3% 26.1%; /* Dark charcoal gray instead of black */
+    --background: 210 40% 98%;
+    --foreground: 240 10% 20%; /* Slightly darker for better readability */
 
-    --primary: 197 69% 28%; /* #29647c */
+    --primary: 240 84% 60%; /* Indigo */
     --primary-foreground: 0 0% 100%; /* White */
 
     --card: 0 0% 100%;
-    --card-foreground: 240 5.3% 26.1%; /* Dark charcoal gray */
+    --card-foreground: 240 10% 20%; /* Dark charcoal gray */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 5.3% 26.1%; /* Dark charcoal gray */
+    --popover-foreground: 240 10% 20%; /* Dark charcoal gray */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 240 5.9% 10%; /* Very dark gray */
+    --secondary: 226 100% 94%;
+    --secondary-foreground: 240 10% 10%; /* Very dark gray */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 226 70% 94%;
+    --muted-foreground: 240 10% 40%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 240 5.9% 10%; /* Very dark gray */
+    --accent: 240 60% 96%;
+    --accent-foreground: 240 10% 10%; /* Very dark gray */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%; /* White */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 240 5.9% 10%; /* Very dark gray */
+    --border: 226 40% 90%;
+    --input: 226 40% 90%;
+    --ring: 240 84% 60%; /* Indigo */
 
-    --radius: 0.5rem;
+    --radius: 0.6rem;
 
     /* Sidebar variables with no pure black */
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 240 10% 20%;
+    --sidebar-primary: 240 10% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 10% 95.9%;
+    --sidebar-accent-foreground: 240 10% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 240 84% 60%;
   }
 
   .dark {
     /* Similar approach for dark mode */
-    --background: 240 5.9% 10%; /* Very dark gray */
+    --background: 240 10% 12%; /* Very dark indigo-gray */
     --foreground: 0 0% 98%; /* Almost white */
 
-    --card: 240 5.9% 10%;
+    --card: 240 10% 12%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 5.9% 10%;
+    --popover: 240 10% 12%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 197 69% 28%;
+    --primary: 240 84% 60%; /* Keep indigo */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 240 4.8% 15.9%; /* Slightly lighter dark gray */
+    --secondary: 240 16% 20%; /* Slightly lighter dark gray */
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 4.8% 15.9%;
+    --muted: 240 16% 20%;
     --muted-foreground: 240 5% 64.9%;
 
-    --accent: 240 4.8% 15.9%;
+    --accent: 240 16% 20%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 4.8% 15.9%;
-    --input: 240 4.8% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 240 16% 20%;
+    --input: 240 16% 20%;
+    --ring: 240 60% 70%;
 
     /* Sidebar dark mode variables */
-    --sidebar-background: 240 5.9% 10%;
+    --sidebar-background: 240 10% 12%;
     --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 240 4.8% 15.9%;
+    --sidebar-primary: 240 16% 20%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent: 240 14% 18%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: 240 14% 18%;
+    --sidebar-ring: 240 84% 60%;
   }
 }
 
@@ -135,7 +136,7 @@
   }
   
   .sorachain-button {
-    @apply sorachain-gradient text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-opacity duration-200;
+    @apply bg-gradient-to-r from-sorachain-primary to-sorachain-light text-white font-medium py-2 px-4 rounded-md hover:opacity-90 transition-opacity duration-200;
   }
 
   .clinical-card {
@@ -153,7 +154,7 @@
 
 @layer utilities {
   .clinical-gradient {
-    @apply bg-gradient-to-r from-sorachain-primary to-sorachain-secondary;
+    @apply bg-gradient-to-r from-sorachain-primary to-sorachain-light;
   }
 
   .trust-shadow {
