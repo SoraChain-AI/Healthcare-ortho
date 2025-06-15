@@ -181,7 +181,7 @@ export const ComputeProviders = () => {
                 ) : (
                   <Button
                     onClick={(e) => handleQuickConnect(provider.id, e)}
-                    className="w-full glass-button bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 text-slate-700 dark:text-slate-200 hover:from-blue-500/30 hover:to-purple-500/30 shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    className="w-full glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 px-6 py-3 glow-effect hover:from-emerald-600 hover:to-cyan-600 transition-all duration-200 group"
                   >
                     <span>Quick Connect</span>
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
