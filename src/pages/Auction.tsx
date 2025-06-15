@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { 
   Gavel, 
@@ -103,7 +102,7 @@ const Auction = () => {
       {!isJoined ? (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
-            <Card className="shadow-md highlight-card">
+            <Card className="glass-card bg-gradient-to-br from-blue-200/40 via-white/70 to-emerald-100/40 shadow-lg border-0 backdrop-blur-2xl">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <CardTitle className="text-2xl">Live Auction: Knee AI Subnet</CardTitle>
@@ -199,7 +198,7 @@ const Auction = () => {
           </div>
           
           <div>
-            <Card>
+            <Card className="glass-card bg-gradient-to-br from-blue-100/30 to-purple-100/40 border-0 shadow-md">
               <CardHeader>
                 <CardTitle>Participant Leaderboard</CardTitle>
                 <CardDescription>
@@ -233,7 +232,7 @@ const Auction = () => {
           </div>
         </div>
       ) : (
-        <Card className="shadow-md border-green-100 dark:border-green-900 bg-green-50 dark:bg-green-900/20">
+        <Card className="glass-card bg-gradient-to-br from-emerald-100/50 to-cyan-100/70 border-0 shadow-lg border-green-100 dark:border-green-900 dark:bg-green-900/40">
           <CardHeader>
             <div className="flex items-center space-x-2">
               <CheckCircle2 className="h-6 w-6 text-green-600 dark:text-green-500" />
@@ -284,7 +283,7 @@ const Auction = () => {
       )}
       
       <div className="mt-10">
-        <Card>
+        <Card className="glass-card bg-gradient-to-r from-blue-100/30 to-purple-100/40 border-0 backdrop-blur-md shadow-md">
           <CardHeader>
             <CardTitle>How Dutch Auctions Work</CardTitle>
             <CardDescription>Understanding the SoraChain subnet allocation process</CardDescription>

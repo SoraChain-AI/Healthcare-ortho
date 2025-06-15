@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -47,7 +46,6 @@ const Navbar = () => {
               <span className="text-xl font-bold text-gradient">SoraChain AI</span>
             </Link>
           </div>
-          
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item, index) => (
               <Link
@@ -60,14 +58,12 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Button className="glass-button liquid-gradient text-white border-0 glow-effect">
               Connect Wallet
             </Button>
           </div>
-
           <div className="md:hidden flex items-center gap-2">
             <ThemeToggle />
             <Button
@@ -80,7 +76,6 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
       {isOpen && (
         <div className="md:hidden glass-card mx-4 mb-4 p-4">
           <div className="space-y-2">
@@ -96,7 +91,7 @@ const Navbar = () => {
               </Link>
             ))}
             <div className="pt-4 border-t border-white/20">
-              <Button className="w-full liquid-gradient text-white border-0">
+              <Button className="w-full liquid-gradient text-white border-0 glass-button glow-effect">
                 Connect Wallet
               </Button>
             </div>
