@@ -1,4 +1,3 @@
-
 import { BrainCircuit, Hospital, Gavel, BarChart2, Bot, Vote, Sparkles, ArrowRight, CheckCircle, Clock } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -150,11 +149,12 @@ const Index = () => {
             {features.map((feature, index) => (
               <Link to={feature.route} key={index} className="floating-element">
                 <Card className="glass-card h-full min-h-[350px] border-0 backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden group">
-                  <div className="absolute top-6 right-6 z-10">
+                  {/* Removed step number indicator */}
+                  {/* <div className="absolute top-6 right-6 z-10">
                     <div className="bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
                       <span className="text-xs font-medium text-slate-600 dark:text-slate-300">{feature.step}</span>
                     </div>
-                  </div>
+                  </div> */}
 
                   <CardHeader className="space-y-6 p-8 pb-4">
                     <div className="flex justify-between items-start">
