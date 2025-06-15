@@ -185,7 +185,7 @@ const Index = () => {
                   </CardHeader>
 
                   <CardContent className="p-8 pt-0">
-                    <Button className="w-full glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 px-6 py-3 glow-effect hover:from-emerald-600 hover:to-cyan-600 transition-all duration-200 group">
+                    <Button className="w-full glass-button bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 dark:from-slate-100 dark:via-slate-300 dark:to-slate-100 text-white border-0 px-6 py-3 glow-effect hover:from-slate-900 hover:to-slate-700 dark:hover:from-slate-300 dark:hover:to-slate-200 transition-all duration-200 group">
                       <span>Get Started</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
