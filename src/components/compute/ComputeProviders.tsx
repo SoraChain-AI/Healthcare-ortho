@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Server, Database, Cloud, Zap } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
@@ -71,13 +71,15 @@ export const ComputeProviders = () => {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="space-y-2">
-          <h3 className="text-2xl font-bold text-gradient">Connect Compute Resources</h3>
-          <p className="text-muted-foreground">Select a compute provider to power your SoraChain AI models</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-gradient">Connect Compute Resources</h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Select a compute provider to power your SoraChain AI models. Your choice will determine the underlying infrastructure for training and inference.
+          </p>
         </div>
         {selectedProvider && (
           <Button 
             onClick={handleConnectProvider}
-            className="glass-button liquid-gradient text-white border-0 glow-effect"
+            className="glass-button liquid-gradient text-white border-0 glow-effect flex-shrink-0"
           >
             Connect Provider
           </Button>
@@ -91,8 +93,8 @@ export const ComputeProviders = () => {
             className={`glass-card cursor-pointer floating-element border-0 ${
               selectedProvider === provider.id 
                 ? 'glow-effect ring-2 ring-primary/30' 
-                : ''
-            }`}
+                : 'ring-2 ring-transparent'
+            } transition-all duration-300`}
             onClick={() => handleProviderSelect(provider.id)}
           >
             <CardHeader className="space-y-4">
@@ -100,9 +102,9 @@ export const ComputeProviders = () => {
                 {provider.icon}
               </div>
               <div className="space-y-2">
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start gap-2">
                   <CardTitle className="text-lg">{provider.name}</CardTitle>
-                  <span className="glass-button text-xs px-2 py-1">
+                  <span className="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
                     {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
                   </span>
                 </div>
@@ -111,14 +113,6 @@ export const ComputeProviders = () => {
                 </CardDescription>
               </div>
             </CardHeader>
-            <CardContent>
-              <Button 
-                variant="ghost"
-                className={`w-full ${selectedProvider === provider.id ? 'liquid-gradient text-white' : 'glass-button'}`}
-              >
-                {selectedProvider === provider.id ? "Selected" : "Select"}
-              </Button>
-            </CardContent>
           </Card>
         ))}
       </div>
