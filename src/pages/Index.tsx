@@ -76,11 +76,11 @@ const Index = () => {
                     Predictive modeling for knee joints
                   </h2>
                 </div>
-                
+
                 <p className="text-lg text-muted-foreground max-w-2xl leading-relaxed">
                   Collaborate securely with healthcare institutions to develop AI models that enhance the diagnosis, treatment, and management of knee-related conditions.
                 </p>
-                
+
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link to="/onboarding">
                     <Button className="glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 text-lg px-8 py-4 glow-effect hover:from-emerald-600 hover:to-cyan-600">
@@ -88,19 +88,19 @@ const Index = () => {
                     </Button>
                   </Link>
                   <Link to="/inference">
-                    <Button className="glass-button text-lg px-8 py-4">
+                    <Button className="glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 text-lg px-8 py-4 glow-effect hover:from-emerald-600 hover:to-cyan-600">
                       Try Knee AI Specialist
                     </Button>
                   </Link>
                 </div>
               </div>
-              
+
               <div className="flex-1 relative">
                 <div className="relative w-full max-w-lg mx-auto">
                   <div className="glass-card p-8 animate-float">
-                    <img 
-                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80" 
-                      alt="Medical AI visualization" 
+                    <img
+                      src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400&q=80"
+                      alt="Medical AI visualization"
                       className="w-full object-cover rounded-xl"
                     />
                   </div>
@@ -128,7 +128,7 @@ const Index = () => {
                 From institution onboarding to AI deployment - everything is designed for seamless collaboration and instant results.
               </p>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-2">
                 <CheckCircle className="h-4 w-4 text-green-500" />
@@ -144,18 +144,19 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+
+          {/* Remove overlaps: add gap-y-14, separation and consistent min-h for cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 gap-y-14">
             {features.map((feature, index) => (
               <Link to={feature.route} key={index} className="floating-element">
-                <Card className={`glass-card h-full border-0 backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden group`}>
+                <Card className="glass-card h-full min-h-[350px] border-0 backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden group">
                   <div className="absolute top-6 right-6 z-10">
                     <div className="bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
                       <span className="text-xs font-medium text-slate-600 dark:text-slate-300">{feature.step}</span>
                     </div>
                   </div>
-                  
-                  <CardHeader className="space-y-6 p-8">
+
+                  <CardHeader className="space-y-6 p-8 pb-4">
                     <div className="flex justify-between items-start">
                       <div className="p-4 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
                         <div className="text-slate-700 dark:text-slate-200">
@@ -172,7 +173,7 @@ const Index = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="space-y-4">
                       <CardTitle className="text-xl font-semibold text-slate-800 dark:text-slate-100 group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-cyan-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                         {feature.title}
@@ -182,9 +183,9 @@ const Index = () => {
                       </CardDescription>
                     </div>
                   </CardHeader>
-                  
+
                   <CardContent className="p-8 pt-0">
-                    <Button className="w-full glass-button bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-xl border border-white/20 text-slate-700 dark:text-slate-200 hover:from-emerald-500/30 hover:to-cyan-500/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                    <Button className="w-full glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 px-6 py-3 glow-effect hover:from-emerald-600 hover:to-cyan-600 transition-all duration-200 group">
                       <span>Get Started</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
@@ -193,7 +194,7 @@ const Index = () => {
               </Link>
             ))}
           </div>
-          
+
           <div className="text-center mt-16">
             <div className="glass-card p-10 bg-gradient-to-r from-emerald-500/5 to-cyan-500/5 backdrop-blur-sm border border-white/20">
               <div className="space-y-6">
