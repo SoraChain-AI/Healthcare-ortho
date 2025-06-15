@@ -71,15 +71,17 @@ export const ComputeProviders = () => {
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div className="space-y-2">
-          <h2 className="text-3xl md:text-4xl font-bold text-gradient">Connect Compute Resources</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl">
+          <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 dark:from-slate-100 dark:via-slate-300 dark:to-slate-100 bg-clip-text text-transparent">
+            Connect Compute Resources
+          </h2>
+          <p className="text-lg text-slate-600 dark:text-slate-300 max-w-2xl font-light">
             Select a compute provider to power your SoraChain AI models. Your choice will determine the underlying infrastructure for training and inference.
           </p>
         </div>
         {selectedProvider && (
           <Button 
             onClick={handleConnectProvider}
-            className="glass-button liquid-gradient text-white border-0 glow-effect flex-shrink-0"
+            className="glass-button bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 text-slate-700 dark:text-slate-200 hover:from-blue-500/30 hover:to-purple-500/30 shadow-xl hover:shadow-2xl transition-all duration-500 flex-shrink-0"
           >
             Connect Provider
           </Button>
@@ -90,25 +92,29 @@ export const ComputeProviders = () => {
         {providers.map((provider) => (
           <Card 
             key={provider.id}
-            className={`glass-card cursor-pointer floating-element border-0 ${
+            className={`glass-card cursor-pointer floating-element border-0 backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 ${
               selectedProvider === provider.id 
-                ? 'glow-effect ring-2 ring-primary/30' 
-                : 'ring-2 ring-transparent'
-            } transition-all duration-300`}
+                ? 'ring-2 ring-blue-400/50 shadow-xl shadow-blue-500/20' 
+                : 'hover:bg-white/20 dark:hover:bg-black/30'
+            } transition-all duration-500 hover:scale-105 hover:shadow-2xl`}
             onClick={() => handleProviderSelect(provider.id)}
           >
-            <CardHeader className="space-y-3 p-4">
-              <div className="flex justify-between items-center">
-                <div className="p-2 bg-primary/10 rounded-lg w-fit text-gradient">
-                  {provider.icon}
+            <CardHeader className="space-y-4 p-6">
+              <div className="flex justify-between items-start">
+                <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
+                  <div className="text-slate-700 dark:text-slate-200">
+                    {provider.icon}
+                  </div>
                 </div>
-                <span className="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
+                <span className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/20 text-slate-600 dark:text-slate-300 text-xs font-medium px-3 py-1.5 rounded-full">
                   {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
                 </span>
               </div>
-              <div className="space-y-1 pt-2">
-                <CardTitle className="text-lg">{provider.name}</CardTitle>
-                <CardDescription className="text-sm text-muted-foreground leading-snug">
+              <div className="space-y-2">
+                <CardTitle className="text-xl font-semibold text-slate-800 dark:text-slate-100">
+                  {provider.name}
+                </CardTitle>
+                <CardDescription className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
                   {provider.description}
                 </CardDescription>
               </div>
