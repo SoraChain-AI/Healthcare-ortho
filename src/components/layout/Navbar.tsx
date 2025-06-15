@@ -25,7 +25,7 @@ const Navbar = () => {
     { to: "/onboarding", label: "Onboarding", icon: <Hospital className="h-4 w-4" /> },
     { to: "/auction", label: "Auction", icon: <Gavel className="h-4 w-4" /> },
     { to: "/training", label: "Training", icon: <BarChart2 className="h-4 w-4" /> },
-    { to: "/inference", label: "AI Specialist", icon: <Bot className="h-4 w-4" /> },
+    { to: "/inference", label: "Knee Specialist", icon: <Bot className="h-4 w-4" /> },
     { to: "/governance", label: "Governance", icon: <Vote className="h-4 w-4" /> },
   ];
 
