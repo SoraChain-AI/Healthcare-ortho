@@ -97,18 +97,18 @@ export const ComputeProviders = () => {
             } transition-all duration-300`}
             onClick={() => handleProviderSelect(provider.id)}
           >
-            <CardHeader className="space-y-4">
-              <div className="glass-card p-3 w-fit text-gradient">
-                {provider.icon}
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between items-start gap-2">
-                  <CardTitle className="text-lg">{provider.name}</CardTitle>
-                  <span className="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
-                    {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
-                  </span>
+            <CardHeader className="space-y-3 p-4">
+              <div className="flex justify-between items-center">
+                <div className="p-2 bg-primary/10 rounded-lg w-fit text-gradient">
+                  {provider.icon}
                 </div>
-                <CardDescription className="text-sm text-muted-foreground">
+                <span className="bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
+                  {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
+                </span>
+              </div>
+              <div className="space-y-1 pt-2">
+                <CardTitle className="text-lg">{provider.name}</CardTitle>
+                <CardDescription className="text-sm text-muted-foreground leading-snug">
                   {provider.description}
                 </CardDescription>
               </div>
