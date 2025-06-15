@@ -115,7 +115,7 @@ const Inference = () => {
         icon={<Upload className="h-8 w-8" />}
       />
       <div className="flex flex-col items-center justify-center min-h-[70vh]">
-        <Card className="max-w-2xl w-full border bg-white dark:bg-gray-900 shadow-lg relative">
+        <Card className="glass-card max-w-2xl w-full backdrop-blur-lg border-2 border-sorachain-light/30 shadow-xl relative animate-fade-in">
           <CardHeader className="text-center">
             <CardTitle className="text-3xl font-bold text-gradient mb-2">
               Get a Personalized AI Consultation
@@ -131,15 +131,17 @@ const Inference = () => {
             </div>
           </CardHeader>
           <CardContent>
-            <div className={`transition-all duration-300 p-0`}>
+            <div
+              className={`transition-all duration-300 p-0`}
+            >
               <div
                 onDrop={handleDrop}
                 onDragOver={e => e.preventDefault()}
-                className="border-2 border-dashed border-blue-400 hover:border-sorachain-primary transition rounded-2xl bg-white dark:bg-gray-800 flex flex-col items-center justify-center p-8 min-h-[200px] cursor-pointer"
+                className="border-2 border-dashed border-sorachain-light hover:border-sorachain-primary transition rounded-2xl bg-white/60 dark:bg-sorachain-dark/50 flex flex-col items-center justify-center p-8 min-h-[200px] glass-card glow-effect cursor-pointer"
                 onClick={handleUploadClick}
                 style={{
                   boxShadow:
-                    '0 6px 20px 0 rgba(102,134,255,0.10), 0 1.5px 4px 0 rgba(102,134,255,0.09)'
+                    '0 12px 45px 0 rgba(102,134,255,0.12), 0 1.5px 4px 0 rgba(102,134,255,0.15)'
                 }}
                 tabIndex={0}
                 role="button"
@@ -167,13 +169,13 @@ const Inference = () => {
               )}
             </div>
             {uploadedFiles.length > 0 && (
-              <div className="bg-gray-50 dark:bg-gray-800 rounded-lg mt-6 p-4 animate-fade-in">
+              <div className="bg-gray-50/60 dark:bg-gray-800/60 rounded-lg mt-6 p-4 animate-fade-in">
                 <h3 className="text-base font-bold mb-2 text-sorachain-primary">Files ready for consultation:</h3>
                 <ul className="space-y-2">
                   {uploadedFiles.map((file, idx) => (
                     <li
                       key={idx}
-                      className="flex justify-between items-center bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 px-3 py-2 rounded-md"
+                      className="flex justify-between items-center bg-white/70 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 px-3 py-2 rounded-md"
                     >
                       <div className="flex items-center">
                         <FileText className="h-5 w-5 mr-2 text-sorachain-primary" />
@@ -199,7 +201,7 @@ const Inference = () => {
             <div className="pt-8 space-y-3">
               <Button
                 onClick={handleSubmit}
-                className="w-full text-lg font-bold shadow-md py-4"
+                className="w-full sorachain-button transition-all duration-300 text-lg font-bold shadow-md py-4"
                 disabled={isUploading}
               >
                 {isUploading
