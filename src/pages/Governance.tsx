@@ -461,7 +461,8 @@ const Governance = () => {
                         <div className="flex flex-col sm:flex-row gap-2 pt-2">
                           <Button 
                             variant="outline" 
-                            className="flex-1 border-green-600 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20"
+-                            className="flex-1 border-green-600 text-green-600 hover:bg-green-50 dark:hover:bg-green-900/20"
++                            className="flex-1 border-green-600 bg-green-600 hover:bg-green-700 text-white"
                             onClick={() => handleVote(proposal.id, 'for')}
                           >
                             <ThumbsUp className="h-4 w-4 mr-2" />
@@ -469,7 +470,8 @@ const Governance = () => {
                           </Button>
                           <Button 
                             variant="outline" 
-                            className="flex-1 border-red-600 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
+-                            className="flex-1 border-red-600 text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20"
++                            className="flex-1 border-red-600 bg-red-600 hover:bg-red-700 text-white"
                             onClick={() => handleVote(proposal.id, 'against')}
                           >
                             <ThumbsDown className="h-4 w-4 mr-2" />
@@ -477,7 +479,8 @@ const Governance = () => {
                           </Button>
                           <Button 
                             variant="outline" 
-                            className="flex-1"
+-                            className="flex-1"
++                            className="flex-1 bg-gray-600 hover:bg-gray-700 text-white"
                             onClick={() => handleVote(proposal.id, 'abstain')}
                           >
                             Abstain
