@@ -1,25 +1,7 @@
 import { useState } from 'react';
-import { 
-  Vote, 
-  ThumbsUp, 
-  ThumbsDown, 
-  CheckCircle2, 
-  FilePlus, 
-  Megaphone, 
-  Lock, 
-  BarChart3, 
-  Clock, 
-  ChevronRight 
-} from 'lucide-react';
+import { Vote, ThumbsUp, ThumbsDown, CheckCircle2, FilePlus, Megaphone, Lock, BarChart3, Clock, ChevronRight } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
-import { 
-  Card, 
-  CardContent, 
-  CardDescription, 
-  CardFooter, 
-  CardHeader, 
-  CardTitle 
-} from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -29,122 +11,127 @@ import { Badge } from '@/components/common/Badge';
 import { SectionHeader } from '@/components/common/SectionHeader';
 import Layout from '@/components/layout/Layout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
 const Governance = () => {
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const [activeTab, setActiveTab] = useState('feedback');
   const [feedbackText, setFeedbackText] = useState('');
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
   const [dataConsent, setDataConsent] = useState(false);
   const [feedbackType, setFeedbackType] = useState<string | null>(null);
-  
+
   // Active proposals data
-  const activeProposals = [
-    {
-      id: 'PROP-32',
-      title: 'Add Support for Spanish Language Interface',
-      description: 'Add Spanish language support to the Knee AI model to better serve Spanish-speaking regions',
-      votes: { for: 73, against: 12, abstain: 15 },
-      deadline: '2d 7h remaining',
-      author: 'Mayo Clinic',
-      status: 'active'
+  const activeProposals = [{
+    id: 'PROP-32',
+    title: 'Add Support for Spanish Language Interface',
+    description: 'Add Spanish language support to the Knee AI model to better serve Spanish-speaking regions',
+    votes: {
+      for: 73,
+      against: 12,
+      abstain: 15
     },
-    {
-      id: 'PROP-31',
-      title: 'Expand Training Dataset with Senior Demographics',
-      description: 'Include more senior patient cases to improve model accuracy for elder populations',
-      votes: { for: 62, against: 19, abstain: 19 },
-      deadline: '3d 12h remaining',
-      author: 'NHS University Hospital',
-      status: 'active'
+    deadline: '2d 7h remaining',
+    author: 'Mayo Clinic',
+    status: 'active'
+  }, {
+    id: 'PROP-31',
+    title: 'Expand Training Dataset with Senior Demographics',
+    description: 'Include more senior patient cases to improve model accuracy for elder populations',
+    votes: {
+      for: 62,
+      against: 19,
+      abstain: 19
     },
-    {
-      id: 'PROP-30',
-      title: 'Implement Physician Review Flow',
-      description: 'Add optional flow for physician review of AI diagnoses for training improvement',
-      votes: { for: 51, against: 28, abstain: 21 },
-      deadline: '5d 3h remaining',
-      author: 'Berlin Medical Center',
-      status: 'active'
-    }
-  ];
-  
+    deadline: '3d 12h remaining',
+    author: 'NHS University Hospital',
+    status: 'active'
+  }, {
+    id: 'PROP-30',
+    title: 'Implement Physician Review Flow',
+    description: 'Add optional flow for physician review of AI diagnoses for training improvement',
+    votes: {
+      for: 51,
+      against: 28,
+      abstain: 21
+    },
+    deadline: '5d 3h remaining',
+    author: 'Berlin Medical Center',
+    status: 'active'
+  }];
+
   // Past proposals data
-  const pastProposals = [
-    {
-      id: 'PROP-29',
-      title: 'Improve Model Sensitivity for Meniscus Tears',
-      description: 'Adjust training parameters to increase sensitivity for detecting meniscus tears',
-      votes: { for: 85, against: 8, abstain: 7 },
-      author: 'Singapore General',
-      status: 'passed'
+  const pastProposals = [{
+    id: 'PROP-29',
+    title: 'Improve Model Sensitivity for Meniscus Tears',
+    description: 'Adjust training parameters to increase sensitivity for detecting meniscus tears',
+    votes: {
+      for: 85,
+      against: 8,
+      abstain: 7
     },
-    {
-      id: 'PROP-28',
-      title: 'Enhance Pediatric Knee Diagnosis Capabilities',
-      description: 'Include more pediatric cases in the training dataset',
-      votes: { for: 42, against: 49, abstain: 9 },
-      author: 'Toronto Health Network',
-      status: 'rejected'
+    author: 'Singapore General',
+    status: 'passed'
+  }, {
+    id: 'PROP-28',
+    title: 'Enhance Pediatric Knee Diagnosis Capabilities',
+    description: 'Include more pediatric cases in the training dataset',
+    votes: {
+      for: 42,
+      against: 49,
+      abstain: 9
     },
-    {
-      id: 'PROP-27',
-      title: 'Add Explainability Feature for Diagnoses',
-      description: 'Implement explainable AI features to provide rationale for diagnoses',
-      votes: { for: 91, against: 5, abstain: 4 },
-      author: 'Mayo Clinic',
-      status: 'passed'
-    }
-  ];
-  
+    author: 'Toronto Health Network',
+    status: 'rejected'
+  }, {
+    id: 'PROP-27',
+    title: 'Add Explainability Feature for Diagnoses',
+    description: 'Implement explainable AI features to provide rationale for diagnoses',
+    votes: {
+      for: 91,
+      against: 5,
+      abstain: 4
+    },
+    author: 'Mayo Clinic',
+    status: 'passed'
+  }];
   const handleFeedbackSubmit = () => {
     if (!feedbackType) {
       toast({
         title: "Please Select Feedback Type",
         description: "Please indicate whether your feedback was positive or negative.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-    
     if (feedbackText.trim().length < 10) {
       toast({
         title: "More Details Needed",
         description: "Please provide more details in your feedback.",
-        variant: "destructive",
+        variant: "destructive"
       });
       return;
     }
-    
     toast({
       title: "Feedback Submitted",
-      description: "Thank you for helping improve the Knee AI model!",
+      description: "Thank you for helping improve the Knee AI model!"
     });
-    
     setFeedbackSubmitted(true);
   };
-  
   const handleVote = (proposalId: string, vote: 'for' | 'against' | 'abstain') => {
     toast({
       title: "Vote Recorded",
-      description: `Your vote on proposal ${proposalId} has been recorded.`,
+      description: `Your vote on proposal ${proposalId} has been recorded.`
     });
   };
-  
   const resetFeedback = () => {
     setFeedbackText('');
     setDataConsent(false);
     setFeedbackType(null);
     setFeedbackSubmitted(false);
   };
-
-  return (
-    <Layout>
-      <SectionHeader 
-        title="Feedback & Governance" 
-        description="Help improve the Knee AI model and participate in governance decisions"
-        icon={<Vote className="h-8 w-8" />}
-      />
+  return <Layout>
+      <SectionHeader title="Feedback & Governance" description="Help improve the Knee AI model and participate in governance decisions" icon={<Vote className="h-8 w-8" />} />
       
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="mb-6">
@@ -153,8 +140,7 @@ const Governance = () => {
         </TabsList>
         
         <TabsContent value="feedback" className="space-y-6">
-          {!feedbackSubmitted ? (
-            <Card>
+          {!feedbackSubmitted ? <Card>
               <CardHeader>
                 <CardTitle>Share Your Experience</CardTitle>
                 <CardDescription>
@@ -166,19 +152,11 @@ const Governance = () => {
                   <div className="space-y-2">
                     <h3 className="font-medium">Was your experience positive or negative?</h3>
                     <div className="flex space-x-2">
-                      <Button 
-                        variant={feedbackType === 'positive' ? 'default' : 'outline'} 
-                        className={feedbackType === 'positive' ? 'bg-green-600 hover:bg-green-700' : ''}
-                        onClick={() => setFeedbackType('positive')}
-                      >
+                      <Button variant={feedbackType === 'positive' ? 'default' : 'outline'} className={feedbackType === 'positive' ? 'bg-green-600 hover:bg-green-700' : ''} onClick={() => setFeedbackType('positive')}>
                         <ThumbsUp className="h-4 w-4 mr-2" />
                         Positive
                       </Button>
-                      <Button 
-                        variant={feedbackType === 'negative' ? 'default' : 'outline'}
-                        className={feedbackType === 'negative' ? 'bg-red-600 hover:bg-red-700' : ''} 
-                        onClick={() => setFeedbackType('negative')}
-                      >
+                      <Button variant={feedbackType === 'negative' ? 'default' : 'outline'} className={feedbackType === 'negative' ? 'bg-red-600 hover:bg-red-700' : ''} onClick={() => setFeedbackType('negative')}>
                         <ThumbsDown className="h-4 w-4 mr-2" />
                         Negative
                       </Button>
@@ -187,24 +165,14 @@ const Governance = () => {
                   
                   <div className="space-y-2">
                     <label htmlFor="feedback" className="font-medium">Detailed Feedback</label>
-                    <Textarea 
-                      id="feedback" 
-                      placeholder="Please share your thoughts on the Knee AI Specialist... What went well? What could be improved?"
-                      value={feedbackText}
-                      onChange={(e) => setFeedbackText(e.target.value)}
-                      className="min-h-32"
-                    />
+                    <Textarea id="feedback" placeholder="Please share your thoughts on the Knee AI Specialist... What went well? What could be improved?" value={feedbackText} onChange={e => setFeedbackText(e.target.value)} className="min-h-32" />
                   </div>
                   
                   <div className="space-y-4 border-t border-gray-200 dark:border-gray-700 pt-4">
                     <h3 className="font-medium">Optional: Contribute to Model Improvement</h3>
                     <div className="flex flex-col space-y-2">
                       <div className="flex items-start space-x-3">
-                        <Checkbox 
-                          id="consent" 
-                          checked={dataConsent}
-                          onCheckedChange={(checked) => setDataConsent(checked as boolean)}
-                        />
+                        <Checkbox id="consent" checked={dataConsent} onCheckedChange={checked => setDataConsent(checked as boolean)} />
                         <div>
                           <label htmlFor="consent" className="text-base font-medium">
                             I consent to anonymously share my case data
@@ -236,16 +204,11 @@ const Governance = () => {
                 </div>
               </CardContent>
               <CardFooter className="flex justify-end">
-                <Button 
-                  className="sorachain-button"
-                  onClick={handleFeedbackSubmit}
-                >
+                <Button className="sorachain-button" onClick={handleFeedbackSubmit}>
                   Submit Feedback
                 </Button>
               </CardFooter>
-            </Card>
-          ) : (
-            <Card className="border-green-100 dark:border-green-900 bg-green-50 dark:bg-green-900/20">
+            </Card> : <Card className="border-green-100 dark:border-green-900 bg-green-50 dark:bg-green-900/20">
               <CardHeader>
                 <div className="flex items-center space-x-2">
                   <CheckCircle2 className="h-6 w-6 text-green-600 dark:text-green-500" />
@@ -262,8 +225,7 @@ const Governance = () => {
                     Your input helps improve the Knee AI model for patients worldwide. The federated learning system will incorporate your feedback during the next training round.
                   </p>
                   
-                  {dataConsent && (
-                    <div className="bg-white dark:bg-gray-800 rounded-lg p-4 w-full max-w-md shadow-sm mb-6">
+                  {dataConsent && <div className="bg-white dark:bg-gray-800 rounded-lg p-4 w-full max-w-md shadow-sm mb-6">
                       <h3 className="font-medium mb-2 flex items-center">
                         <FilePlus className="h-4 w-4 mr-2 text-sorachain-primary" />
                         Data Contribution Status
@@ -286,16 +248,14 @@ const Governance = () => {
                           <span className="font-medium">April 20, 2023</span>
                         </div>
                       </div>
-                    </div>
-                  )}
+                    </div>}
                   
                   <Button variant="outline" onClick={resetFeedback}>
                     Provide Additional Feedback
                   </Button>
                 </div>
               </CardContent>
-            </Card>
-          )}
+            </Card>}
           
           <Card>
             <CardHeader>
@@ -383,8 +343,7 @@ const Governance = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
-                {activeProposals.map((proposal, index) => (
-                  <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                {activeProposals.map((proposal, index) => <div key={index} className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
                     <div className="bg-gray-50 dark:bg-gray-800 p-4">
                       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
                         <div className="flex items-center">
@@ -423,10 +382,9 @@ const Governance = () => {
                               <span className="text-green-600">{proposal.votes.for}%</span>
                             </div>
                             <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <div 
-                                className="h-full bg-green-600 rounded-full" 
-                                style={{ width: `${proposal.votes.for}%` }}
-                              ></div>
+                              <div className="h-full bg-green-600 rounded-full" style={{
+                            width: `${proposal.votes.for}%`
+                          }}></div>
                             </div>
                           </div>
                           
@@ -436,10 +394,9 @@ const Governance = () => {
                               <span className="text-red-600">{proposal.votes.against}%</span>
                             </div>
                             <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <div 
-                                className="h-full bg-red-600 rounded-full" 
-                                style={{ width: `${proposal.votes.against}%` }}
-                              ></div>
+                              <div className="h-full bg-red-600 rounded-full" style={{
+                            width: `${proposal.votes.against}%`
+                          }}></div>
                             </div>
                           </div>
                           
@@ -449,43 +406,29 @@ const Governance = () => {
                               <span className="text-gray-500">{proposal.votes.abstain}%</span>
                             </div>
                             <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <div 
-                                className="h-full bg-gray-500 rounded-full" 
-                                style={{ width: `${proposal.votes.abstain}%` }}
-                              ></div>
+                              <div className="h-full bg-gray-500 rounded-full" style={{
+                            width: `${proposal.votes.abstain}%`
+                          }}></div>
                             </div>
                           </div>
                         </div>
                         
                         <div className="flex flex-col sm:flex-row gap-2 pt-2">
-                          <Button 
-                            variant="outline"
-                            className="flex-1 border-green-600 bg-green-600 hover:bg-green-700 text-white"
-                            onClick={() => handleVote(proposal.id, 'for')}
-                          >
+                          <Button variant="outline" className="flex-1 border-green-600 bg-green-600 hover:bg-green-700 text-white" onClick={() => handleVote(proposal.id, 'for')}>
                             <ThumbsUp className="h-4 w-4 mr-2" />
                             Vote For
                           </Button>
-                          <Button 
-                            variant="outline"
-                            className="flex-1 border-red-600 bg-red-600 hover:bg-red-700 text-white"
-                            onClick={() => handleVote(proposal.id, 'against')}
-                          >
+                          <Button variant="outline" className="flex-1 border-red-600 bg-red-600 hover:bg-red-700 text-white" onClick={() => handleVote(proposal.id, 'against')}>
                             <ThumbsDown className="h-4 w-4 mr-2" />
                             Vote Against
                           </Button>
-                          <Button 
-                            variant="outline"
-                            className="flex-1 bg-gray-600 hover:bg-gray-700 text-white"
-                            onClick={() => handleVote(proposal.id, 'abstain')}
-                          >
+                          <Button variant="outline" className="flex-1 bg-gray-600 hover:bg-gray-700 text-white" onClick={() => handleVote(proposal.id, 'abstain')}>
                             Abstain
                           </Button>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
               </div>
             </CardContent>
           </Card>
@@ -499,17 +442,12 @@ const Governance = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {pastProposals.map((proposal, index) => (
-                  <div key={index} className="flex flex-col sm:flex-row gap-4 p-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
+                {pastProposals.map((proposal, index) => <div key={index} className="flex flex-col sm:flex-row gap-4 p-4 border-b border-gray-200 dark:border-gray-700 last:border-b-0">
                     <div className="flex-1">
                       <div className="flex items-center space-x-2 mb-1">
                         <Badge className="mr-1" label={proposal.id} />
-                        <h3 className="font-medium">{proposal.title}</h3>
-                        {proposal.status === 'passed' ? (
-                          <Badge label="Passed" variant="success" />
-                        ) : (
-                          <Badge label="Rejected" variant="warning" />
-                        )}
+                        <h3 className="font-medium text-left">{proposal.title}</h3>
+                        {proposal.status === 'passed' ? <Badge label="Passed" variant="success" /> : <Badge label="Rejected" variant="warning" />}
                       </div>
                       <p className="text-sm text-gray-600 dark:text-gray-300">
                         {proposal.description}
@@ -528,20 +466,23 @@ const Governance = () => {
                       <div className="flex items-center text-sm">
                         <span className="text-red-600 font-medium mr-2">{proposal.votes.against}%</span>
                         <Progress value={proposal.votes.against} className="h-1.5 flex-1 bg-gray-200 dark:bg-gray-700">
-                          <div className="h-full bg-red-600 rounded-full" style={{ width: `${proposal.votes.against}%` }}></div>
+                          <div className="h-full bg-red-600 rounded-full" style={{
+                        width: `${proposal.votes.against}%`
+                      }}></div>
                         </Progress>
                         <span className="ml-2">Against</span>
                       </div>
                       <div className="flex items-center text-sm">
                         <span className="text-gray-500 font-medium mr-2">{proposal.votes.abstain}%</span>
                         <Progress value={proposal.votes.abstain} className="h-1.5 flex-1 bg-gray-200 dark:bg-gray-700">
-                          <div className="h-full bg-gray-500 rounded-full" style={{ width: `${proposal.votes.abstain}%` }}></div>
+                          <div className="h-full bg-gray-500 rounded-full" style={{
+                        width: `${proposal.votes.abstain}%`
+                      }}></div>
                         </Progress>
                         <span className="ml-2">Abstain</span>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  </div>)}
                 
                 <div className="flex justify-center">
                   <Button variant="outline" className="mt-2">
@@ -569,19 +510,12 @@ const Governance = () => {
                 
                 <div className="space-y-2">
                   <label htmlFor="description" className="font-medium">Detailed Description</label>
-                  <Textarea 
-                    id="description" 
-                    placeholder="Describe your proposal in detail, including the problem it solves and implementation details..."
-                    className="min-h-32"
-                  />
+                  <Textarea id="description" placeholder="Describe your proposal in detail, including the problem it solves and implementation details..." className="min-h-32" />
                 </div>
                 
                 <div className="space-y-2">
                   <label htmlFor="category" className="font-medium">Category</label>
-                  <select 
-                    id="category" 
-                    className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-sm"
-                  >
+                  <select id="category" className="w-full rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 p-2 text-sm">
                     <option value="">Select a category</option>
                     <option value="model-improvement">Model Improvement</option>
                     <option value="ui-enhancement">User Interface Enhancement</option>
@@ -605,8 +539,6 @@ const Governance = () => {
           </Card>
         </TabsContent>
       </Tabs>
-    </Layout>
-  );
+    </Layout>;
 };
-
 export default Governance;
