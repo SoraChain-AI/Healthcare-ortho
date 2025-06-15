@@ -58,7 +58,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="space-y-16">
+      <div className="space-y-20">
         {/* Hero Section */}
         <div className="relative overflow-hidden">
           <div className="glass-card p-8 md:p-12 lg:p-16">
@@ -83,7 +83,7 @@ const Index = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link to="/onboarding">
-                    <Button className="glass-button liquid-gradient text-white border-0 text-lg px-8 py-4 glow-effect">
+                    <Button className="glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 text-lg px-8 py-4 glow-effect hover:from-emerald-600 hover:to-cyan-600">
                       Join as Institution
                     </Button>
                   </Link>
@@ -104,8 +104,8 @@ const Index = () => {
                       className="w-full object-cover rounded-xl"
                     />
                   </div>
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 animate-pulse-slow"></div>
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-20 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full opacity-20 animate-pulse-slow"></div>
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full opacity-20 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
                 </div>
               </div>
             </div>
@@ -118,9 +118,9 @@ const Index = () => {
         </section>
 
         {/* Enhanced How It Works Section */}
-        <section className="space-y-12">
-          <div className="text-center space-y-6">
-            <div className="space-y-2">
+        <section className="space-y-16">
+          <div className="text-center space-y-8">
+            <div className="space-y-4">
               <h2 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 dark:from-slate-100 dark:via-slate-300 dark:to-slate-100 bg-clip-text text-transparent">
                 Simple 5-Step Process
               </h2>
@@ -135,7 +135,7 @@ const Index = () => {
                 <span>Privacy-preserving federated learning</span>
               </div>
               <div className="flex items-center gap-2">
-                <Clock className="h-4 w-4 text-blue-500" />
+                <Clock className="h-4 w-4 text-emerald-500" />
                 <span>Real-time collaboration</span>
               </div>
               <div className="flex items-center gap-2">
@@ -145,36 +145,36 @@ const Index = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <Link to={feature.route} key={index} className="floating-element">
                 <Card className={`glass-card h-full border-0 backdrop-blur-xl bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 hover:bg-white/20 dark:hover:bg-black/30 transition-all duration-500 hover:scale-105 hover:shadow-2xl relative overflow-hidden group`}>
-                  <div className="absolute top-4 right-4 z-10">
-                    <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1">
+                  <div className="absolute top-6 right-6 z-10">
+                    <div className="bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
                       <span className="text-xs font-medium text-slate-600 dark:text-slate-300">{feature.step}</span>
                     </div>
                   </div>
                   
-                  <CardHeader className="space-y-4 p-6">
+                  <CardHeader className="space-y-6 p-8">
                     <div className="flex justify-between items-start">
-                      <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
+                      <div className="p-4 bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 backdrop-blur-sm rounded-xl border border-white/20 w-fit">
                         <div className="text-slate-700 dark:text-slate-200">
                           {feature.icon}
                         </div>
                       </div>
-                      <div className="flex flex-col items-end gap-2">
-                        <span className="bg-gradient-to-r from-green-500/20 to-blue-500/20 backdrop-blur-sm border border-white/20 text-slate-600 dark:text-slate-300 text-xs font-medium px-3 py-1.5 rounded-full">
+                      <div className="flex flex-col items-end gap-3 mt-2">
+                        <span className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-sm border border-white/20 text-slate-600 dark:text-slate-300 text-xs font-medium px-3 py-2 rounded-full">
                           {feature.status}
                         </span>
-                        <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
+                        <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
                           <Clock className="h-3 w-3" />
                           <span>{feature.duration}</span>
                         </div>
                       </div>
                     </div>
                     
-                    <div className="space-y-3">
-                      <CardTitle className="text-xl font-semibold text-slate-800 dark:text-slate-100 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                    <div className="space-y-4">
+                      <CardTitle className="text-xl font-semibold text-slate-800 dark:text-slate-100 group-hover:bg-gradient-to-r group-hover:from-emerald-600 group-hover:to-cyan-600 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                         {feature.title}
                       </CardTitle>
                       <CardDescription className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed font-light">
@@ -183,8 +183,8 @@ const Index = () => {
                     </div>
                   </CardHeader>
                   
-                  <CardContent className="p-6 pt-0">
-                    <Button className="w-full glass-button bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 text-slate-700 dark:text-slate-200 hover:from-blue-500/30 hover:to-purple-500/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
+                  <CardContent className="p-8 pt-0">
+                    <Button className="w-full glass-button bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 backdrop-blur-xl border border-white/20 text-slate-700 dark:text-slate-200 hover:from-emerald-500/30 hover:to-cyan-500/30 shadow-lg hover:shadow-xl transition-all duration-300 group">
                       <span>Get Started</span>
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
                     </Button>
@@ -194,9 +194,9 @@ const Index = () => {
             ))}
           </div>
           
-          <div className="text-center">
-            <div className="glass-card p-8 bg-gradient-to-r from-blue-500/5 to-purple-500/5 backdrop-blur-sm border border-white/20">
-              <div className="space-y-4">
+          <div className="text-center mt-16">
+            <div className="glass-card p-10 bg-gradient-to-r from-emerald-500/5 to-cyan-500/5 backdrop-blur-sm border border-white/20">
+              <div className="space-y-6">
                 <h3 className="text-xl font-semibold text-slate-800 dark:text-slate-100">
                   Ready to Transform Healthcare AI?
                 </h3>
@@ -206,7 +206,7 @@ const Index = () => {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link to="/onboarding">
-                    <Button className="glass-button liquid-gradient text-white border-0 px-6 py-3 glow-effect">
+                    <Button className="glass-button bg-gradient-to-r from-emerald-500 to-cyan-500 text-white border-0 px-6 py-3 glow-effect hover:from-emerald-600 hover:to-cyan-600">
                       Start Your Journey
                     </Button>
                   </Link>
