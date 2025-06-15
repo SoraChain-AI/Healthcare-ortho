@@ -110,7 +110,7 @@ const Inference = () => {
   return (
     <Layout>
       <SectionHeader
-        title="AI Medical Report Consultation"
+        title="Knee Specialist - Orthopedic"
         description="Upload your reports or x-rays for expert AI-powered assessment"
         icon={<Upload className="h-8 w-8" />}
       />
