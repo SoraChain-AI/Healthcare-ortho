@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import {
   Upload,
@@ -125,7 +124,6 @@ const Inference = () => {
               Our decentralized AI reviews your information securely and provides a specialist-level summary, all while preserving your privacy.
             </CardDescription>
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
-              <Badge label="Liquid Glass UX" variant="privacy" />
               <Badge label="HIPAA Compliant" variant="privacy" />
               <Badge label="100% Private & Secure" variant="privacy" />
             </div>
