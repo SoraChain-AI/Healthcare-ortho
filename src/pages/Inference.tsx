@@ -86,8 +86,7 @@ const Inference = () => {
           <CardHeader className="text-center">
             <CardTitle className="text-3xl font-bold text-gradient mb-2">Get a Consultation from a Specialist</CardTitle>
             <CardDescription className="text-md">
-              Users around the world can upload medical reports and knee x-rays <br />
-              Our decentralized AI reviews your information securely and provides a specialist-level summary, all while preserving your privacy.
+              Upload your medical reports and knee x-rays for consultation.
             </CardDescription>
             <div className="mt-4 flex flex-wrap gap-2 justify-center">
               <Badge label="HIPAA Compliant" variant="privacy" />
