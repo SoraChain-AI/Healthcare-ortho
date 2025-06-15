@@ -22,84 +22,83 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { to: "/", label: "Home", icon: <BrainCircuit className="h-5 w-5 mr-2" /> },
-    { to: "/onboarding", label: "Institution Onboarding", icon: <Hospital className="h-5 w-5 mr-2" /> },
-    { to: "/auction", label: "Subnet Auction", icon: <Gavel className="h-5 w-5 mr-2" /> },
-    { to: "/training", label: "Federated Training", icon: <BarChart2 className="h-5 w-5 mr-2" /> },
-    { to: "/inference", label: "Knee Specialist AI", icon: <Bot className="h-5 w-5 mr-2" /> },
-    { to: "/governance", label: "Feedback & Governance", icon: <Vote className="h-5 w-5 mr-2" /> },
+    { to: "/", label: "Home", icon: <BrainCircuit className="h-4 w-4" /> },
+    { to: "/onboarding", label: "Onboarding", icon: <Hospital className="h-4 w-4" /> },
+    { to: "/auction", label: "Auction", icon: <Gavel className="h-4 w-4" /> },
+    { to: "/training", label: "Training", icon: <BarChart2 className="h-4 w-4" /> },
+    { to: "/inference", label: "AI Specialist", icon: <Bot className="h-4 w-4" /> },
+    { to: "/governance", label: "Governance", icon: <Vote className="h-4 w-4" /> },
   ];
 
   return (
-    <nav className="border-b border-gray-200 bg-white dark:bg-gray-900 dark:border-gray-800">
+    <nav className="glass-nav fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 justify-between">
-          <div className="flex">
-            <div className="flex flex-shrink-0 items-center">
-              <Link to="/" className="flex items-center gap-2">
+        <div className="flex h-16 justify-between items-center">
+          <div className="flex items-center">
+            <Link to="/" className="flex items-center gap-2 group">
+              <div className="relative">
                 <img 
                   src="/lovable-uploads/ece62b12-57de-4357-9b19-8078adff3c8a.png" 
                   alt="SoraChain AI Logo" 
-                  className="h-8 w-8"
+                  className="h-8 w-8 transition-transform duration-300 group-hover:scale-110"
                 />
-                <span className="text-xl font-bold bg-clip-text text-transparent sorachain-gradient">SoraChain AI</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+              </div>
+              <span className="text-xl font-bold text-gradient">SoraChain AI</span>
+            </Link>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-1">
+            {navItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.to}
+                className="glass-button text-sm flex items-center gap-2 hover:text-primary transition-colors"
+              >
+                {item.icon}
+                {item.label}
               </Link>
-            </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-4">
-              {navItems.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.to}
-                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-gray-600 hover:text-sorachain-primary dark:text-gray-300 dark:hover:text-sorachain-primary"
-                >
-                  {item.icon}
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            ))}
           </div>
-          <div className="hidden sm:ml-6 sm:flex sm:items-center">
+
+          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <div className="ml-3">
-              <Button className="sorachain-button">Connect Wallet</Button>
-            </div>
+            <Button className="glass-button liquid-gradient text-white border-0 glow-effect">
+              Connect Wallet
+            </Button>
           </div>
-          <div className="-mr-2 flex items-center sm:hidden">
+
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
             <Button
               variant="ghost"
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center rounded-md p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+              className="glass-button p-2"
             >
-              <span className="sr-only">Open main menu</span>
-              {isOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div className="sm:hidden">
-          <div className="space-y-1 px-2 pb-3 pt-2">
+        <div className="md:hidden glass-card mx-4 mb-4 p-4">
+          <div className="space-y-2">
             {navItems.map((item, index) => (
               <Link
                 key={index}
                 to={item.to}
-                className="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-sorachain-primary dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-sorachain-primary"
+                className="flex items-center gap-3 p-3 rounded-xl hover:bg-white/10 transition-colors"
                 onClick={() => setIsOpen(false)}
               >
-                <div className="flex items-center">
-                  {item.icon}
-                  {item.label}
-                </div>
+                {item.icon}
+                {item.label}
               </Link>
             ))}
-            <div className="mt-4 flex items-center justify-between px-3">
-              <ThemeToggle />
-              <Button className="sorachain-button">Connect Wallet</Button>
+            <div className="pt-4 border-t border-white/20">
+              <Button className="w-full liquid-gradient text-white border-0">
+                Connect Wallet
+              </Button>
             </div>
           </div>
         </div>

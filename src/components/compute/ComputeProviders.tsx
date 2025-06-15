@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Server, Database, Cloud } from 'lucide-react';
+import { Server, Database, Cloud, Zap } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
@@ -41,7 +41,7 @@ export const ComputeProviders = () => {
     {
       id: 'render',
       name: 'Render',
-      icon: <Server className="h-8 w-8" />,
+      icon: <Zap className="h-8 w-8" />,
       description: 'Cloud application hosting platform',
       category: 'decentralized',
     },
@@ -64,52 +64,57 @@ export const ComputeProviders = () => {
       toast.success(`Connecting to ${provider?.name}...`, {
         description: "Integration process started"
       });
-      // Here you would implement the actual connection logic
     }
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <h3 className="text-xl font-bold">Connect Compute Resources</h3>
-          <p className="text-gray-600 dark:text-gray-300">Select a compute provider to power your SoraChain AI models</p>
+        <div className="space-y-2">
+          <h3 className="text-2xl font-bold text-gradient">Connect Compute Resources</h3>
+          <p className="text-muted-foreground">Select a compute provider to power your SoraChain AI models</p>
         </div>
         {selectedProvider && (
           <Button 
             onClick={handleConnectProvider}
-            className="sorachain-button"
+            className="glass-button liquid-gradient text-white border-0 glow-effect"
           >
             Connect Provider
           </Button>
         )}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {providers.map((provider) => (
           <Card 
             key={provider.id}
-            className={`cursor-pointer transition-all hover:shadow-md ${
+            className={`glass-card cursor-pointer floating-element border-0 ${
               selectedProvider === provider.id 
-                ? 'ring-2 ring-sorachain-primary bg-sorachain-pale/10' 
-                : 'hover:translate-y-[-4px]'
+                ? 'glow-effect ring-2 ring-primary/30' 
+                : ''
             }`}
             onClick={() => handleProviderSelect(provider.id)}
           >
-            <CardHeader>
-              <div className="text-sorachain-primary mb-2">{provider.icon}</div>
-              <CardTitle className="flex justify-between items-center">
-                {provider.name}
-                <span className="text-xs px-2 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300">
-                  {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
-                </span>
-              </CardTitle>
-              <CardDescription>{provider.description}</CardDescription>
+            <CardHeader className="space-y-4">
+              <div className="glass-card p-3 w-fit text-gradient">
+                {provider.icon}
+              </div>
+              <div className="space-y-2">
+                <div className="flex justify-between items-start">
+                  <CardTitle className="text-lg">{provider.name}</CardTitle>
+                  <span className="glass-button text-xs px-2 py-1">
+                    {provider.category === 'cloud' ? 'Cloud' : 'Decentralized'}
+                  </span>
+                </div>
+                <CardDescription className="text-sm text-muted-foreground">
+                  {provider.description}
+                </CardDescription>
+              </div>
             </CardHeader>
             <CardContent>
               <Button 
-                variant={selectedProvider === provider.id ? "default" : "ghost"}
-                className={selectedProvider === provider.id ? "sorachain-button" : "text-sorachain-primary"}
+                variant="ghost"
+                className={`w-full ${selectedProvider === provider.id ? 'liquid-gradient text-white' : 'glass-button'}`}
               >
                 {selectedProvider === provider.id ? "Selected" : "Select"}
               </Button>
