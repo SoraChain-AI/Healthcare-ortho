@@ -43,7 +43,7 @@ const Navbar = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
               </div>
-              <span className="text-xl font-bold text-gradient">SoraChain AI</span>
+              <span className="text-xl font-bold text-gradient whitespace-nowrap">SoraChain AI</span>
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-1">
