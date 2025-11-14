@@ -201,7 +201,7 @@ const Training = () => {
                         label={{ value: 'Loss', angle: -90, position: 'insideRight' }}
                       />
                       <Tooltip />
-                      <Legend />
+                      <Legend wrapperStyle={{ paddingTop: '20px' }} iconSize={12} />
                       <Line 
                         yAxisId="left"
                         type="monotone" 
