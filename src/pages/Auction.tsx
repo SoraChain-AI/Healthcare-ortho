@@ -38,7 +38,8 @@ const Auction = () => {
     { id: 2, name: 'NHS University Hospital', region: 'Europe', stake: 7200 },
     { id: 3, name: 'Singapore General', region: 'Asia', stake: 6800 },
     { id: 4, name: 'Berlin Medical Center', region: 'Europe', stake: 6200 },
-    { id: 5, name: 'Toronto Health Network', region: 'North America', stake: 5800 },
+    { id: 5, name: 'Mohammed Bin Rashid University', region: 'Middle East', stake: 6000 },
+    { id: 6, name: 'Toronto Health Network', region: 'North America', stake: 5800 },
   ]);
 
   // Simulate price dropping over time
