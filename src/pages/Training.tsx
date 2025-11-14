@@ -63,9 +63,10 @@ const Training = () => {
     { name: 'NHS University', value: 18, color: '#7E69AB' },
     { name: 'Singapore General', value: 15, color: '#6E59A5' },
     { name: 'Berlin Medical', value: 12, color: '#937DC2' },
+    { name: 'Mohammed Bin Rashid Uni', value: 11, color: '#A78BFA' },
     { name: 'Toronto Health', value: 10, color: '#C689C6' },
     { name: 'Your Institution', value: 8, color: '#E8A0BF' },
-    { name: 'Others', value: 15, color: '#D8C4F5' },
+    { name: 'Others', value: 4, color: '#D8C4F5' },
   ];
   
   // Audit trail data

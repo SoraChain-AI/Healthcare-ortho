@@ -181,6 +181,7 @@ const Onboarding = () => {
                       <SelectItem value="north-america">North America</SelectItem>
                       <SelectItem value="europe">Europe</SelectItem>
                       <SelectItem value="asia">Asia</SelectItem>
+                      <SelectItem value="middle-east">Middle East</SelectItem>
                       <SelectItem value="africa">Africa</SelectItem>
                       <SelectItem value="oceania">Oceania</SelectItem>
                       <SelectItem value="south-america">South America</SelectItem>
